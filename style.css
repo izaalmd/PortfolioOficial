@@ -65,6 +65,22 @@ body {
     50% { transform: scale(1.05); }
 }
 
+#banner-aviso {
+    background: linear-gradient(90deg, #ff00ff, #7b2cbf, #00ffff);
+    background-size: 200% 200%;
+    animation: gradient 4s ease infinite;
+    color: white;
+    text-align: center;
+    padding: 0.6rem 1rem;
+    font-size: 0.95rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1001;
+}
+
 header {
     background: rgba(15, 12, 41, 0.8);
     backdrop-filter: blur(10px);
@@ -72,7 +88,7 @@ header {
     padding: 1rem 0;
     position: fixed;
     width: 100%;
-    top: 0;
+    top: 36px;
     z-index: 1000;
     box-shadow: 0 2px 20px rgba(255, 0, 255, 0.4);
     border-bottom: 2px solid rgba(0, 255, 255, 0.5);
