@@ -348,7 +348,95 @@ nav h1 {
     text-shadow: 0 0 60px rgba(199, 125, 255, 0.4);
 }
 
-section h2 {
+#certificacoes {
+    background: #e8d5f5;
+    border-radius: 0;
+    max-width: 100%;
+    margin: 0;
+    padding: 4rem 6rem;
+    position: relative;
+    border-top: 1px solid #c9a8e8;
+}
+
+.cert-titulo {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+    margin-bottom: 3rem;
+}
+
+.cert-cursivo {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 3rem;
+    color: #1a1a1a;
+    font-weight: normal;
+}
+
+.cert-destaque {
+    font-size: 3.2rem;
+    font-weight: 900;
+    color: #9b5de5;
+    letter-spacing: -1px;
+}
+
+.cert-body {
+    display: flex;
+    gap: 0;
+    align-items: stretch;
+}
+
+.cert-logos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem 3rem;
+    align-items: center;
+    flex: 1;
+    padding-right: 3rem;
+}
+
+.cert-logos img {
+    max-width: 120px;
+    max-height: 60px;
+    object-fit: contain;
+    filter: grayscale(20%);
+    transition: filter 0.3s;
+}
+
+.cert-logos img:hover {
+    filter: grayscale(0%);
+}
+
+.cert-divider {
+    width: 2px;
+    background: #9b5de5;
+    margin: 0 3rem;
+    border-radius: 2px;
+}
+
+.cert-lista {
+    list-style: none;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.2rem;
+}
+
+.cert-lista li {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.cert-icon {
+    font-size: 1.4rem;
+}
+
+
     font-size: 2.5rem;
     margin-bottom: 2rem;
     text-align: center;
