@@ -36,70 +36,35 @@ const projects = [
     }
 ];
 
-function createParticles() {
-    const particlesContainer = document.getElementById('particles');
-    const particleCount = 30;
-    
-    for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        particle.style.width = Math.random() * 5 + 2 + 'px';
-        particle.style.height = particle.style.width;
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.top = Math.random() * 100 + '%';
-        particle.style.animationDelay = Math.random() * 6 + 's';
-        particle.style.animationDuration = (Math.random() * 4 + 4) + 's';
-        particlesContainer.appendChild(particle);
-    }
-}
+function createMatrix() {
+    const canvas = document.getElementById('matrix-canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
-function createBubbles() {
-    const bubbleCount = 8;
-    
-    for (let i = 0; i < bubbleCount; i++) {
-        const bubble = document.createElement('div');
-        bubble.className = 'bubble';
-        const size = Math.random() * 200 + 100;
-        bubble.style.width = size + 'px';
-        bubble.style.height = size + 'px';
-        bubble.style.left = Math.random() * 100 + '%';
-        bubble.style.top = Math.random() * 100 + '%';
-        bubble.style.animationDelay = Math.random() * 5 + 's';
-        bubble.style.animationDuration = (Math.random() * 10 + 15) + 's';
-        document.body.appendChild(bubble);
-    }
-}
+    const chars = 'getElement querySelector length return undefined function call div selected checked option'.split(' ').join('').split('');
+    const fontSize = 14;
+    const cols = Math.floor(canvas.width / fontSize);
+    const drops = Array(cols).fill(1);
+    const colors = ['#00aaff', '#aa00ff', '#ff00ff', '#0066ff'];
 
-function typeWriter() {
-    const texts = ['Front-end 💜', 'UI/UX 🎨', 'Web Design ✨'];
-    let textIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    const typingElement = document.getElementById('typing-text');
-    
-    function type() {
-        const currentText = texts[textIndex];
-        
-        if (isDeleting) {
-            typingElement.textContent = currentText.substring(0, charIndex - 1);
-            charIndex--;
-        } else {
-            typingElement.textContent = currentText.substring(0, charIndex + 1);
-            charIndex++;
-        }
-        
-        if (!isDeleting && charIndex === currentText.length) {
-            setTimeout(() => isDeleting = true, 2000);
-        } else if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            textIndex = (textIndex + 1) % texts.length;
-        }
-        
-        const speed = isDeleting ? 50 : 100;
-        setTimeout(type, speed);
+    function draw() {
+        ctx.fillStyle = 'rgba(5, 5, 16, 0.05)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        drops.forEach((y, i) => {
+            ctx.fillStyle = colors[Math.floor(Math.random() * colors.length)];
+            ctx.font = fontSize + 'px monospace';
+            ctx.fillText(chars[Math.floor(Math.random() * chars.length)], i * fontSize, y * fontSize);
+            if (y * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+            drops[i]++;
+        });
     }
-    
-    type();
+
+    setInterval(draw, 40);
+    window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    });
 }
 
 function observeElements() {
@@ -210,10 +175,6 @@ function showProjectImages(project) {
     document.body.appendChild(modal);
 }
 
-document.getElementById('cta-btn').addEventListener('click', () => {
-    document.getElementById('projetos').scrollIntoView({ behavior: 'smooth' });
-});
-
 document.querySelectorAll('#menu a').forEach(link => {
     link.addEventListener('click', (e) => {
         e.preventDefault();
@@ -222,8 +183,6 @@ document.querySelectorAll('#menu a').forEach(link => {
     });
 });
 
-createParticles();
-createBubbles();
-typeWriter();
+createMatrix();
 renderProjects();
 observeElements();
