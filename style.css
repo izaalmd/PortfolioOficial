@@ -113,13 +113,12 @@ nav {
 }
 
 nav h1 {
-    font-size: 1.5rem;
-    background: linear-gradient(45deg, #ff00ff, #00ffff, #ff00ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gradient 3s ease infinite;
-    background-size: 200% 200%;
+    font-size: 0.85rem;
+    color: white;
+    letter-spacing: 3px;
+    font-weight: bold;
+    background: none;
+    -webkit-text-fill-color: white;
 }
 
 #menu {
