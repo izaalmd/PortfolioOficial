@@ -65,31 +65,6 @@ body {
     50% { transform: scale(1.05); }
 }
 
-#banner-aviso {
-    background: #1a0a2e;
-    color: white;
-    text-align: left;
-    padding: 0.6rem 2rem;
-    font-size: 0.85rem;
-    font-weight: bold;
-    letter-spacing: 3px;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1001;
-    border-bottom: 2px solid #7b2cbf;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-#banner-aviso::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: #7b2cbf;
-}
-
 header {
     background: rgba(15, 12, 41, 0.8);
     backdrop-filter: blur(10px);
@@ -97,7 +72,7 @@ header {
     padding: 1rem 0;
     position: fixed;
     width: 100%;
-    top: 36px;
+    top: 0;
     z-index: 1000;
     box-shadow: 0 2px 20px rgba(255, 0, 255, 0.4);
     border-bottom: 2px solid rgba(0, 255, 255, 0.5);
@@ -271,7 +246,7 @@ nav h1 {
     border-radius: 0;
     max-width: 100%;
     margin: 0;
-    padding: 4rem 6rem;
+    padding: 5rem 8rem;
     position: relative;
     overflow: hidden;
 }
@@ -280,51 +255,59 @@ nav h1 {
     position: absolute;
     top: 2rem;
     right: 3rem;
+    opacity: 0.9;
 }
 
 .sobre-header {
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
 }
 
 .sobre-titulo {
     display: flex;
     flex-direction: column;
-    line-height: 1;
+    line-height: 1.1;
 }
 
 .sobre-cursivo {
     font-family: 'Georgia', serif;
     font-style: italic;
-    font-size: 3.5rem;
+    font-size: 4rem;
     color: #1a1a1a;
     font-weight: normal;
 }
 
 .sobre-mim {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 900;
     color: #9b5de5;
-    margin-left: 1rem;
+    margin-left: 1.5rem;
+    letter-spacing: -1px;
 }
 
 .sobre-body {
     display: flex;
-    gap: 3rem;
+    gap: 4rem;
     align-items: flex-start;
 }
 
 .sobre-foto {
-    width: 220px;
-    height: 280px;
+    width: 240px;
+    height: 300px;
     object-fit: cover;
+    object-position: top;
     flex-shrink: 0;
     border-radius: 4px;
+    border-left: 5px solid #7b2cbf;
+}
+
+.sobre-texto {
+    padding-top: 0.5rem;
 }
 
 .sobre-texto p {
     margin-bottom: 1.2rem;
     font-size: 1rem;
-    line-height: 1.7;
+    line-height: 1.8;
     color: #1a1a1a;
     font-weight: 600;
     text-align: justify;
