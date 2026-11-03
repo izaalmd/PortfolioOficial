@@ -71,13 +71,13 @@ function observeElements() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
+                entry.target.classList.add('visible');
             }
         });
-    }, { threshold: 0.1 });
-    
-    document.querySelectorAll('.project-card, .tech-item').forEach(el => {
-        el.style.opacity = '0';
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.project-card, .tech-item, .cert-logo-item, .cert-lista li, .sobre-body, .sobre-header').forEach(el => {
+        el.classList.add('reveal');
         observer.observe(el);
     });
 }
