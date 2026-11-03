@@ -508,48 +508,62 @@ section {
     opacity: 1;
     transform: translateY(0);
 }
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
+
+#habilidades, #ferramentas {
+    background: #0d0d1a;
+    padding: 5rem 6rem;
+}
+
+#habilidades h2, #ferramentas h2 {
+    text-align: left;
+    width: auto;
+    display: block;
+    margin-bottom: 3rem;
 }
 
 .tech-icons {
-    margin-top: 2rem;
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 2rem;
 }
 
 .tech-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
-    transition: transform 0.3s;
+    gap: 0.8rem;
+    background: #12121f;
+    border: 1px solid #2a2a3e;
+    border-radius: 12px;
+    padding: 1.5rem 1rem;
+    transition: all 0.3s;
+    cursor: default;
 }
 
 .tech-item:hover {
-    transform: translateY(-10px);
+    border-color: #c77dff;
+    transform: translateY(-6px);
+    box-shadow: 0 8px 24px rgba(199,125,255,0.2);
 }
 
 .tech-item img, .tech-item svg {
-    width: 80px;
-    height: 80px;
-    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
-    transition: all 0.3s;
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    filter: none;
+    transition: transform 0.3s;
 }
 
 .tech-item:hover img, .tech-item:hover svg {
-    filter: drop-shadow(0 10px 25px rgba(255, 0, 255, 0.4));
     transform: scale(1.1);
+    filter: none;
 }
 
 .tech-item span {
-    font-size: 1rem;
-    font-weight: bold;
-    color: #333;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #ccc;
+    text-align: center;
 }
 
 .projetos-sub {
