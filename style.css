@@ -399,13 +399,14 @@ nav h1 {
     justify-content: center;
 }
 
-.cert-logo-item svg {
-    width: 120px;
-    height: 50px;
+.cert-logo-item img {
+    max-width: 120px;
+    max-height: 65px;
+    object-fit: contain;
     transition: transform 0.3s;
 }
 
-.cert-logo-item:hover svg {
+.cert-logo-item:hover img {
     transform: scale(1.1);
 }
 
