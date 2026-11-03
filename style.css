@@ -400,8 +400,8 @@ nav h1 {
 }
 
 .cert-logo-item img {
-    max-width: 120px;
-    max-height: 65px;
+    max-width: 160px;
+    max-height: 90px;
     object-fit: contain;
     transition: transform 0.3s;
 }
