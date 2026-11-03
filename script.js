@@ -215,7 +215,37 @@ function showProjectImages(project) {
     document.body.appendChild(modal);
 }
 
-document.querySelectorAll('#menu a').forEach(link => {
+function typeWriter() {
+    const texts = ['Desenvolvedora', 'UI/UX Designer', 'Fullstack Dev', 'Criativa'];
+    let i = 0, j = 0, deleting = false;
+    const el = document.getElementById('typing-text');
+    if (!el) return;
+    function tick() {
+        const cur = texts[i];
+        el.textContent = deleting ? cur.substring(0, j--) : cur.substring(0, j++);
+        if (!deleting && j === cur.length + 1) { deleting = true; setTimeout(tick, 1800); return; }
+        if (deleting && j === 0) { deleting = false; i = (i + 1) % texts.length; }
+        setTimeout(tick, deleting ? 50 : 100);
+    }
+    tick();
+}
+
+function updateDots() {
+    const sections = document.querySelectorAll('section[id]');
+    const dots = document.querySelectorAll('.dot');
+    const scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+    sections.forEach((sec, idx) => {
+        const top = sec.offsetTop - window.innerHeight / 2;
+        const bottom = top + sec.offsetHeight;
+        if (scrollY >= top && scrollY < bottom) {
+            dots.forEach(d => d.classList.remove('active'));
+            if (dots[idx]) dots[idx].classList.add('active');
+        }
+    });
+}
+
+document.body.addEventListener('scroll', updateDots);
+updateDots();
     link.addEventListener('click', (e) => {
         e.preventDefault();
         const targetId = link.getAttribute('href');
@@ -224,5 +254,6 @@ document.querySelectorAll('#menu a').forEach(link => {
 });
 
 createMatrix();
+typeWriter();
 renderProjects();
 observeElements();
