@@ -35,25 +35,38 @@
 
     <section id="sobre">
         <div class="stars-container" id="sobre-stars"></div>
-        <div class="sobre-triangulos">
-            <svg width="160" height="160" viewBox="0 0 160 160" fill="none">
-                <polygon points="40,10 130,10 130,100" stroke="#7b2cbf" stroke-width="2" fill="none"/>
-                <polygon points="60,30 140,30 140,120" stroke="#7b2cbf" stroke-width="2" fill="none"/>
-                <polygon points="80,50 150,50 150,140" stroke="#7b2cbf" stroke-width="2" fill="none"/>
-            </svg>
-        </div>
-        <div class="sobre-header">
-            <div class="sobre-titulo">
-                <span class="sobre-cursivo">Sobre</span>
-                <span class="sobre-mim">mim</span>
+        <div class="sobre-layout">
+            <!-- Lado esquerdo: foto -->
+            <div class="sobre-foto-wrap">
+                <div class="sobre-foto-deco"></div>
+                <div class="sobre-foto-ring"></div>
+                <img src="imagens/izafoto.png" alt="Izabelly" class="sobre-foto">
+                <div class="sobre-cross tl">+</div>
+                <div class="sobre-cross bl">+</div>
+                <svg class="sobre-orbit" viewBox="0 0 200 200" fill="none">
+                    <ellipse cx="100" cy="100" rx="90" ry="50" stroke="#9b5de5" stroke-width="1.5" stroke-dasharray="6 4" transform="rotate(-30 100 100)"/>
+                </svg>
             </div>
-        </div>
-        <div class="sobre-body">
-            <img src="imagens/izafoto.png" alt="Izabelly" class="sobre-foto">
-            <div class="sobre-texto">
-                <p>Olá! Sou Izabelly Almeida, formada em Técnica em Informática e atualmente graduanda em Design de Mídias Digitais pela FATEC.</p>
-                <p>Atuo como Jovem Aprendiz na área de Qualidade, onde desenvolvo atividades relacionadas ao controle e à organização de documentos, atualização de planilhas, acompanhamento de processos e análise de indicadores, ampliando minha experiência no ambiente corporativo.</p>
-                <p>Tenho interesse no desenvolvimento de soluções digitais que integrem criatividade, tecnologia e usabilidade. Valorizo o aprendizado contínuo, a colaboração e a capacidade de transformar ideias em projetos funcionais, intuitivos e relevantes. Meu objetivo é ampliar minha experiência profissional, desenvolver novas competências e contribuir para projetos que envolvam inovação, comunicação visual e tecnologia.</p>
+            <!-- Lado direito: texto -->
+            <div class="sobre-texto-wrap">
+                <div class="sobre-num">01 <span class="sobre-num-line"></span></div>
+                <h2 class="sobre-titulo-novo">Quem <span>sou eu</span></h2>
+                <div class="sobre-texto">
+                    <p>Olá! Sou <strong>Izabelly Almeida</strong>, formada em <strong>Técnica em Informática</strong> e atualmente graduanda em <strong>Design de Mídias Digitais</strong> pela FATEC.</p>
+                    <p>Atuo como Jovem Aprendiz na área de <strong>Qualidade</strong>, onde desenvolvo atividades relacionadas ao controle e à organização de documentos, atualização de planilhas, acompanhamento de processos e análise de indicadores, ampliando minha experiência no ambiente corporativo.</p>
+                    <p>Tenho interesse no desenvolvimento de soluções digitais que integrem criatividade, tecnologia e usabilidade. Valorizo o aprendizado contínuo, a colaboração e a capacidade de transformar ideias em projetos funcionais, intuitivos e relevantes.</p>
+                </div>
+                <div class="sobre-tag">
+                    <span class="sobre-tag-code">&lt;/&gt;</span>
+                    <span class="sobre-tag-divider"></span>
+                    <span>Busco evoluir, criar e fazer a diferença.</span>
+                </div>
+                <!-- estrelinhas decorativas -->
+                <div class="sobre-star s1">✦</div>
+                <div class="sobre-star s2">✦</div>
+                <div class="sobre-dots">
+                    <span></span><span></span><span></span>
+                </div>
             </div>
         </div>
     </section>
