@@ -215,7 +215,53 @@ function showProjectImages(project) {
     document.body.appendChild(modal);
 }
 
-function typeWriter() {
+function createStars() {
+    const configs = [
+        { id: 'hero-stars', count: 18, dark: true },
+        { id: 'sobre-stars', count: 12, dark: false },
+        { id: 'cert-stars', count: 10, dark: false },
+        { id: 'contato-stars', count: 10, dark: false },
+    ];
+
+    const darkColors = ['#c77dff','#ff79c6','#bd93f9','#ffffff','#e0aaff','#f8c8ff','#a0c4ff'];
+    const lightColors = ['#9b5de5','#c77dff','#e879f9','#f472b6','#a78bfa','#7c3aed','#db2777'];
+
+    const starPaths = [
+        'M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z',
+        'M12 1l3 8h8l-6.5 5 2.5 8L12 17.5 5 22l2.5-8L1 9h8z',
+        'M12 2l2 6h6l-5 4 2 6-5-3.5L7 18l2-6-5-4h6z',
+    ];
+
+    configs.forEach(({ id, count, dark }) => {
+        const container = document.getElementById(id);
+        if (!container) return;
+        const colors = dark ? darkColors : lightColors;
+
+        for (let i = 0; i < count; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            const size = Math.random() * 22 + 10;
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            const path = starPaths[Math.floor(Math.random() * starPaths.length)];
+            const dur = Math.random() * 6 + 4;
+            const delay = Math.random() * 6;
+            const opacity = dark ? (Math.random() * 0.5 + 0.3) : (Math.random() * 0.3 + 0.15);
+
+            star.style.cssText = `
+                left: ${Math.random() * 95}%;
+                top: ${Math.random() * 90}%;
+                animation-duration: ${dur}s;
+                animation-delay: -${delay}s;
+                opacity: ${opacity};
+            `;
+
+            star.innerHTML = `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="${color}"><path d="${path}"/></svg>`;
+            container.appendChild(star);
+        }
+    });
+}
+
+
     const texts = ['Desenvolvedora', 'UI/UX Designer', 'Fullstack Dev', 'Criativa'];
     let i = 0, j = 0, deleting = false;
     const el = document.getElementById('typing-text');
@@ -254,6 +300,7 @@ updateDots();
 });
 
 createMatrix();
+createStars();
 typeWriter();
 renderProjects();
 observeElements();
