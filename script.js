@@ -149,77 +149,46 @@ document.querySelectorAll('.filtro').forEach(btn => {
 });
 
 function showProjectImages(project) {
-    const modal = document.createElement('div');
-    modal.style.cssText = `
-        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-        background: rgba(0,0,0,0.9); z-index: 1000; display: flex;
-        align-items: center; justify-content: center; flex-direction: column;
-    `;
-    
-    const content = document.createElement('div');
-    content.style.cssText = `
-        max-width: 90%; max-height: 90%; overflow-y: auto;
-        text-align: center; padding: 20px;
-    `;
-    
-    if (project.title.includes('Game Legends')) {
-        const siteImages = project.images.filter(img => img.includes('site'));
-        const appImages = project.images.filter(img => img.includes('app'));
-        
-        content.innerHTML = `
-            <h2 style="color: #00ffff; margin-bottom: 20px;">${project.title}</h2>
-            <div style="color: #fff; text-align: left; margin-bottom: 30px; line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto;">
-                <p style="margin-bottom: 20px;">Game Legends é uma plataforma web e mobile criada para apoiar e dar visibilidade a desenvolvedores independentes de jogos, especialmente iniciantes. O projeto conecta criadores e jogadores em um ambiente colaborativo, permitindo a publicação de jogos, avaliações gratuitas, feedbacks da comunidade e um sistema de doações diretas para financiar projetos em desenvolvimento.</p>
-                
-                <p style="margin-bottom: 20px;">Desenvolvida com arquitetura moderna e escalável, a plataforma integra frontend responsivo, backend em Spring Boot, API RESTful e aplicação mobile em Flutter, garantindo segurança, usabilidade e consistência de dados entre web e mobile. O sistema conta com autenticação segura, diferentes níveis de acesso (cliente, desenvolvedor e administrador), moderação de conteúdo, filtros avançados de busca e controle de avaliações.</p>
-                
-                <p style="margin-bottom: 20px;">Além do aspecto técnico, a Game Legends possui um forte viés social, promovendo inclusão, inovação e democratização no mercado de games, alinhando-se aos Objetivos de Desenvolvimento Sustentável (ODS 9). O projeto busca reduzir barreiras enfrentadas por desenvolvedores indie e fortalecer a relação entre quem cria e quem joga.</p>
-                
-                <p style="color: #00ffff; font-weight: bold; margin-top: 30px;">Algumas fotos do projeto:</p>
-            </div>
-            <h3 style="color: #fff; margin: 20px 0 10px 0;">🌐 Site</h3>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 30px;">
-                ${siteImages.map(img => `
-                    <img src="${img}" style="width: 100%; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,255,255,0.3);" alt="Site Game Legends">
-                `).join('')}
-            </div>
-            <h3 style="color: #fff; margin: 20px 0 10px 0;">📱 App</h3>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-                ${appImages.map(img => `
-                    <img src="${img}" style="width: 100%; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,255,255,0.3);" alt="App Game Legends">
-                `).join('')}
-            </div>
-            <button onclick="this.parentElement.parentElement.remove()" style="
-                margin-top: 20px; padding: 10px 20px; background: #00ffff;
-                color: #000; border: none; border-radius: 5px; cursor: pointer;
-            ">Fechar</button>
+    const siteImages = project.images.filter(img => img.includes('site'));
+    const appImages = project.images.filter(img => img.includes('app'));
+    const otherImages = project.images.filter(img => !img.includes('site') && !img.includes('app'));
+
+    const hasSections = siteImages.length > 0 && appImages.length > 0;
+
+    let imagesHTML = '';
+    if (hasSections) {
+        imagesHTML = `
+            <p class="proj-modal-section-title">Site</p>
+            <div class="proj-modal-grid">${siteImages.map(img => `<img src="${img}" alt="${project.title}">`).join('')}</div>
+            <p class="proj-modal-section-title">App Mobile</p>
+            <div class="proj-modal-grid">${appImages.map(img => `<img src="${img}" alt="${project.title}">`).join('')}</div>
         `;
-    } else if (project.title.includes('Meu Cinema')) {
-        content.innerHTML = `
-            <h2 style="color: #00ffff; margin-bottom: 20px;">${project.title}</h2>
-            <div style="color: #fff; text-align: left; margin-bottom: 30px; line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto;">
-                <p style="margin-bottom: 20px;">Meu Cinema é um catálogo pessoal simples e intuitivo onde organizo filmes, séries e animes que gosto ou pretendo assistir. O projeto foi desenvolvido com foco na experiência do usuário, oferecendo uma interface limpa e moderna para navegar pelo conteúdo.</p>
-                
-                <p style="margin-bottom: 20px;">A aplicação permite visualizar detalhes dos títulos, incluindo sinopses, avaliações e informações técnicas. Com design responsivo e navegação fluida, o catálogo oferece uma experiência agradável tanto em dispositivos móveis quanto desktop.</p>
-                
-                <p style="color: #00ffff; font-weight: bold; margin-top: 30px;">Algumas fotos do projeto:</p>
-            </div>
-            <h3 style="color: #fff; margin: 20px 0 10px 0;">🎬 Aplicação</h3>
-            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
-                ${project.images.map(img => `
-                    <img src="${img}" style="width: 100%; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,255,255,0.3);" alt="Meu Cinema">
-                `).join('')}
-            </div>
-            <button onclick="this.parentElement.parentElement.remove()" style="
-                margin-top: 20px; padding: 10px 20px; background: #00ffff;
-                color: #000; border: none; border-radius: 5px; cursor: pointer;
-            ">Fechar</button>
-        `;
+    } else {
+        const imgs = [...otherImages, ...siteImages, ...appImages];
+        imagesHTML = `<div class="proj-modal-grid">${imgs.map(img => `<img src="${img}" alt="${project.title}">`).join('')}</div>`;
     }
-    
-    modal.appendChild(content);
-    modal.onclick = (e) => { if (e.target === modal) modal.remove(); };
-    document.body.appendChild(modal);
+
+    const overlay = document.createElement('div');
+    overlay.className = 'proj-modal-overlay';
+    overlay.innerHTML = `
+        <div class="proj-modal">
+            <button class="proj-modal-close" onclick="this.closest('.proj-modal-overlay').remove()">✕</button>
+            <span class="proj-modal-badge">${project.badge}</span>
+            <h2 class="proj-modal-title">${project.title}</h2>
+            <p class="proj-modal-desc">${project.description}</p>
+            <div class="proj-modal-techs">
+                ${project.techs.map(t => `<span class="tech-tag">${t}</span>`).join('')}
+            </div>
+            <p class="proj-modal-section-title">Imagens do projeto</p>
+            ${imagesHTML}
+        </div>
+    `;
+
+    overlay.addEventListener('click', (e) => { if (e.target === overlay) overlay.remove(); });
+    document.addEventListener('keydown', function esc(e) {
+        if (e.key === 'Escape') { overlay.remove(); document.removeEventListener('keydown', esc); }
+    });
+    document.body.appendChild(overlay);
 }
 
 function createStars() {
