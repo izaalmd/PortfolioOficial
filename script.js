@@ -113,6 +113,11 @@ function renderProjects(filtro = 'todos') {
     container.innerHTML = '';
     const filtered = filtro === 'todos' ? projects : projects.filter(p => Array.isArray(p.tipo) ? p.tipo.includes(filtro) : p.tipo === filtro);
 
+    if (filtered.length === 0) {
+        container.innerHTML = '<p class="projects-empty">Ainda não há projetos nesta categoria.</p>';
+        return;
+    }
+
     filtered.forEach(project => {
         const card = document.createElement('div');
         card.className = 'project-card';

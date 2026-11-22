@@ -815,6 +815,16 @@ section h2::after { display: none; }
     gap: 1.8rem;
 }
 
+.projects-empty {
+    grid-column: 1 / -1;
+    padding: 2.5rem 1.5rem;
+    border: 1px dashed #c9a8e8;
+    border-radius: 14px;
+    color: #716782;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.45);
+}
+
 .project-card {
     background: #fff;
     border-radius: 16px;
