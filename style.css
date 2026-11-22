@@ -654,7 +654,6 @@ section h2::after { display: none; }
 /* HABILIDADES / FERRAMENTAS */
 #habilidades, #ferramentas {
     background: linear-gradient(160deg, #d8b4fe55 0%, #c084fc33 40%, #a855f722 100%), #e9d5ff;
-    align-items: center;
 }
 
 #habilidades h2, #ferramentas h2 {
@@ -670,7 +669,7 @@ section h2::after { display: none; }
     line-height: 1.1;
     margin-bottom: 3rem;
     text-align: center;
-    align-items: center;
+    width: 100%;
 }
 
 .skills-destaque {
@@ -690,6 +689,7 @@ section h2::after { display: none; }
     flex-wrap: wrap;
     justify-content: center;
     gap: 1.2rem;
+    width: 100%;
 }
 
 .tech-item {
