@@ -3,7 +3,7 @@ const projects = [
         title: "Game Legends",
         description: "Plataforma web e mobile criada para apoiar desenvolvedores independentes de jogos. Conecta criadores e jogadores com sistema de avaliações, feedbacks e doações.",
         quote: "\"Democratizando o mercado indie — conectando quem cria com quem joga.\"",
-        tipo: "fullstack",
+        tipo: ["fullstack", "prototipo"],
         badge: "FULLSTACK",
         ano: "2025",
         techs: ["Spring Boot", "Flutter", "MySQL", "REST API"],
@@ -19,25 +19,6 @@ const projects = [
             "imagens/tcc/jogoapp.png",
             "imagens/tcc/perfilapp.png",
             "imagens/tcc/pixapp.png"
-        ],
-        github: "https://github.com/izaalmd"
-    },
-    {
-        title: "Game Legends — Protótipo",
-        description: "Protótipo de UI/UX desenvolvido no Figma antes da implementação do app. Define a identidade visual, fluxo de navegação e experiência do usuário da plataforma.",
-        quote: "\"Do conceito ao produto — onde tudo começou.\"",
-        tipo: "prototipo",
-        badge: "FIGMA",
-        ano: "2024",
-        techs: ["Figma", "UI/UX", "Prototipação"],
-        cover: "imagens/tcc/figma_gamelegends/indexgl.png",
-        images: [
-            "imagens/tcc/figma_gamelegends/entrecomgl.png",
-            "imagens/tcc/figma_gamelegends/logingl.png",
-            "imagens/tcc/figma_gamelegends/indexgl.png",
-            "imagens/tcc/figma_gamelegends/jogogl.png",
-            "imagens/tcc/figma_gamelegends/boletogl.png",
-            "imagens/tcc/figma_gamelegends/abagl.png"
         ],
         github: "https://github.com/izaalmd",
         figma: "https://www.figma.com/design/oXDOhUDOxdreTXsONHiHem/Game-legends-app?node-id=0-1"
@@ -130,7 +111,7 @@ function observeElements() {
 function renderProjects(filtro = 'todos') {
     const container = document.getElementById('projects-container');
     container.innerHTML = '';
-    const filtered = filtro === 'todos' ? projects : projects.filter(p => p.tipo === filtro);
+    const filtered = filtro === 'todos' ? projects : projects.filter(p => Array.isArray(p.tipo) ? p.tipo.includes(filtro) : p.tipo === filtro);
 
     filtered.forEach(project => {
         const card = document.createElement('div');
