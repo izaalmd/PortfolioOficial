@@ -1880,10 +1880,11 @@ section {
 }
 
 .contact-links {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1rem;
-    max-width: 480px;
+    width: 100%;
+    max-width: 1120px;
     margin-bottom: 3rem;
 }
 
@@ -1908,6 +1909,14 @@ section {
 .contact-item div {
     display: flex;
     flex-direction: column;
+}
+
+@media (max-width: 900px) {
+    .contact-links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 560px) {
+    .contact-links { grid-template-columns: 1fr; }
 }
 
 .contact-label {
