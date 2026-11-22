@@ -164,7 +164,7 @@ function showProjectImages(project) {
             <div class="proj-modal-grid">${siteImages.map(img => `<img src="${img}" alt="Game Legends Site">`).join('')}</div>
             <p class="proj-modal-section-title">App Mobile</p>
             <div class="proj-modal-grid">${appImages.map(img => `<img src="${img}" alt="Game Legends App">`).join('')}</div>
-            <p class="proj-modal-section-title">Protótipo Figma</p>
+            <p class="proj-modal-section-title">Protótipo Figma — App</p>
             <div class="proj-modal-figma-btn-wrap">
                 <a href="https://www.figma.com/design/oXDOhUDOxdreTXsONHiHem/Game-legends-app?node-id=0-1" target="_blank" class="proj-modal-figma-btn">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5zM12 2h3.5a3.5 3.5 0 1 1 0 7H12V2zm0 10.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0zm-7 3.5A3.5 3.5 0 0 1 8.5 12H12v7H8.5A3.5 3.5 0 0 1 5 16zm0 0"/></svg>
@@ -172,8 +172,14 @@ function showProjectImages(project) {
                 </a>
             </div>
             <div class="proj-modal-grid">
-                ${['abagl','boletogl','entrecomgl','indexgl','inicialgl','jogogl','logingl'].map(name =>
+                ${['entrecomgl','logingl','indexgl','jogogl','boletogl','abagl'].map(name =>
                     `<img src="imagens/tcc/figma_gamelegends/${name}.png" alt="Prototipo ${name}">`
+                ).join('')}
+            </div>
+            <p class="proj-modal-section-title">Protótipo Figma — Site</p>
+            <div class="proj-modal-grid">
+                ${['indexglsite','loginglsite','jogosglsite','recuperarglsite'].map(name =>
+                    `<img src="imagens/tcc/figma_gamelegends/site/${name}.png" alt="Prototipo Site ${name}">`
                 ).join('')}
             </div>
         `;
