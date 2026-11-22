@@ -29,7 +29,7 @@ const projects = [
         quote: "\"Seu universo de entretenimento em um só lugar.\"",
         tipo: "frontend",
         badge: "FRONTEND",
-        ano: "2024",
+        ano: "2025",
         techs: ["HTML", "CSS", "JavaScript"],
         cover: "imagens/projetos/meu cinema/1filmes.png",
         images: [
@@ -47,6 +47,7 @@ const projects = [
         quote: "Conteúdo visual para aproximar criadores e jogadores.",
         tipo: ["socialmedia"],
         badge: "SOCIAL MEDIA",
+        ano: "2025",
         techs: ["Design Visual", "Carrossel"],
         cover: "imagens/projetos/social_media/1/1a.png",
         images: [
@@ -61,6 +62,7 @@ const projects = [
         quote: "Uma curiosidade sobre um dos jogos indie mais queridos.",
         tipo: ["socialmedia"],
         badge: "SOCIAL MEDIA",
+        ano: "2025",
         techs: ["Design Visual", "Carrossel"],
         cover: "imagens/projetos/social_media/2/2a.png",
         images: [
@@ -75,6 +77,7 @@ const projects = [
         quote: "Conteúdo pensado para informar e despertar curiosidade.",
         tipo: ["socialmedia"],
         badge: "SOCIAL MEDIA",
+        ano: "2025",
         techs: ["Design Visual", "Carrossel"],
         cover: "imagens/projetos/social_media/3/3a.png",
         images: [
@@ -89,7 +92,7 @@ const projects = [
         quote: "\"Simples, divertido e feito do zero.\"",
         tipo: "frontend",
         badge: "FRONTEND",
-        ano: "2024",
+        ano: "2025",
         techs: ["HTML", "CSS", "JavaScript"],
         cover: "imagens/projetos/jogodavelha/image.png",
         images: [],
