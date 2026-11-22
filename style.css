@@ -1117,6 +1117,31 @@ section h2::after { display: none; }
     border-color: rgba(199,125,255,0.3);
 }
 
+.proj-modal-figma-btn-wrap {
+    margin-bottom: 1rem;
+}
+
+.proj-modal-figma-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(123,44,191,0.12);
+    border: 1px solid rgba(123,44,191,0.4);
+    color: #c77dff;
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.proj-modal-figma-btn:hover {
+    background: #7b2cbf;
+    color: #fff;
+    border-color: #7b2cbf;
+}
+
 /* CONTATO */
 #contato {
     background: #f0e6ff;
