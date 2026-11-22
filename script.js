@@ -273,7 +273,7 @@ function createStars() {
 }
 
 function typeWriter() {
-    const texts = ['Desenvolvedora', 'UI/UX Designer', 'Fullstack Dev', 'Criativa'];
+    const texts = ['Desenvolvedora', 'UI/UX Designer', 'Fullstack Dev'];
     let i = 0, j = 0, deleting = false;
     const el = document.getElementById('typing-text');
     if (!el) return;
