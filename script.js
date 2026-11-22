@@ -7,18 +7,18 @@ const projects = [
         badge: "FULLSTACK",
         ano: "2025",
         techs: ["Spring Boot", "Flutter", "MySQL", "REST API"],
-        cover: "imagens/tcc/indexsite.png",
+        cover: "imagens/projetos/game_legends/indexsite.png",
         images: [
-            "imagens/tcc/indexsite.png",
-            "imagens/tcc/loginsite.png",
-            "imagens/tcc/jogossite.png",
-            "imagens/tcc/codigosite.png",
-            "imagens/tcc/redefinirsenhasite.png",
-            "imagens/tcc/suportesite.png",
-            "imagens/tcc/categoriasapp.png",
-            "imagens/tcc/jogoapp.png",
-            "imagens/tcc/perfilapp.png",
-            "imagens/tcc/pixapp.png"
+            "imagens/projetos/game_legends/indexsite.png",
+            "imagens/projetos/game_legends/loginsite.png",
+            "imagens/projetos/game_legends/jogossite.png",
+            "imagens/projetos/game_legends/codigosite.png",
+            "imagens/projetos/game_legends/redefinirsenhasite.png",
+            "imagens/projetos/game_legends/suportesite.png",
+            "imagens/projetos/game_legends/categoriasapp.png",
+            "imagens/projetos/game_legends/jogoapp.png",
+            "imagens/projetos/game_legends/perfilapp.png",
+            "imagens/projetos/game_legends/pixapp.png"
         ],
         github: "https://github.com/izaalmd",
         figma: "https://www.figma.com/design/oXDOhUDOxdreTXsONHiHem/Game-legends-app?node-id=0-1"
@@ -31,13 +31,13 @@ const projects = [
         badge: "FRONTEND",
         ano: "2024",
         techs: ["HTML", "CSS", "JavaScript"],
-        cover: "imagens/tcc/meucinema/1filmes.png",
+        cover: "imagens/projetos/meu cinema/1filmes.png",
         images: [
-            "imagens/tcc/meucinema/1filmes.png",
-            "imagens/tcc/meucinema/2sries.png",
-            "imagens/tcc/meucinema/3animes.png",
-            "imagens/tcc/meucinema/4detalhes.png",
-            "imagens/tcc/meucinema/5detalhes.png"
+            "imagens/projetos/meu cinema/1filmes.png",
+            "imagens/projetos/meu cinema/2sries.png",
+            "imagens/projetos/meu cinema/3animes.png",
+            "imagens/projetos/meu cinema/4detalhes.png",
+            "imagens/projetos/meu cinema/5detalhes.png"
         ],
         github: "https://github.com/izaalmd"
     },
@@ -49,7 +49,7 @@ const projects = [
         badge: "FRONTEND",
         ano: "2024",
         techs: ["HTML", "CSS", "JavaScript"],
-        cover: "imagens/tcc/jogodavelha/image.png",
+        cover: "imagens/projetos/jogodavelha/image.png",
         images: [],
         github: "https://github.com/izaalmd"
     }
@@ -173,13 +173,19 @@ function showProjectImages(project) {
             </div>
             <div class="proj-modal-grid">
                 ${['entrecomgl','logingl','indexgl','jogogl','boletogl','abagl'].map(name =>
-                    `<img src="imagens/tcc/figma_gamelegends/${name}.png" alt="Prototipo ${name}">`
+                    `<img src="imagens/projetos/game_legends/figma/app/${name}.png" alt="Prototipo ${name}">`
                 ).join('')}
             </div>
             <p class="proj-modal-section-title">Protótipo Figma — Site</p>
+            <div class="proj-modal-figma-btn-wrap">
+                <a href="https://www.figma.com/design/CwGLdVNSanc1yI1bJStfr8/Game-Legends?node-id=0-1&t=N2YielqYEBqnH3Hc-1" target="_blank" rel="noopener noreferrer" class="proj-modal-figma-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5zM12 2h3.5a3.5 3.5 0 1 1 0 7H12V2zm0 10.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0zm-7 3.5A3.5 3.5 0 0 1 8.5 12H12v7H8.5A3.5 3.5 0 0 1 5 16zm0 0"/></svg>
+                    Abrir protótipo do site no Figma
+                </a>
+            </div>
             <div class="proj-modal-grid">
                 ${['indexglsite','loginglsite','jogosglsite','recuperarglsite'].map(name =>
-                    `<img src="imagens/tcc/figma_gamelegends/site/${name}.png" alt="Prototipo Site ${name}">`
+                    `<img src="imagens/projetos/game_legends/figma/site/${name}.png" alt="Prototipo Site ${name}">`
                 ).join('')}
             </div>
         `;
