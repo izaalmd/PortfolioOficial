@@ -10,7 +10,7 @@ body {
     color: #333;
     overflow-x: hidden;
     background: #0a0a14;
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: y proximity;
     overflow-y: scroll;
     height: 100vh;
 }
