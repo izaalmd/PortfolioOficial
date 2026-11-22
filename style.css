@@ -2110,3 +2110,25 @@ footer::before {
 #contato .stars-container {
     inset: -2px 0;
 }
+
+@keyframes cursor-star-trail {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.25) rotate(0deg); }
+    18% { opacity: 0.95; }
+    100% {
+        opacity: 0;
+        transform: translate(calc(-50% + var(--trail-x)), calc(-50% - 24px)) scale(0.15) rotate(var(--trail-rotation));
+    }
+}
+
+.cursor-trail-star {
+    position: fixed;
+    z-index: 2000;
+    pointer-events: none;
+    line-height: 1;
+    text-shadow: 0 0 9px currentColor;
+    animation: cursor-star-trail 700ms ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cursor-trail-star { display: none; }
+}

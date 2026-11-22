@@ -322,6 +322,38 @@ function createStars() {
     });
 }
 
+function createCursorTrail() {
+    const colors = ['#c77dff', '#f0abfc', '#ffffff', '#a0c4ff'];
+    let lastStarAt = 0;
+    let lastX = 0;
+    let lastY = 0;
+
+    document.addEventListener('pointermove', event => {
+        if (event.pointerType === 'touch' || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        const now = performance.now();
+        const distance = Math.hypot(event.clientX - lastX, event.clientY - lastY);
+        if (now - lastStarAt < 45 || distance < 8) return;
+
+        lastStarAt = now;
+        lastX = event.clientX;
+        lastY = event.clientY;
+
+        const star = document.createElement('span');
+        star.className = 'cursor-trail-star';
+        star.setAttribute('aria-hidden', 'true');
+        star.textContent = Math.random() > 0.5 ? '✦' : '✧';
+        star.style.left = `${event.clientX}px`;
+        star.style.top = `${event.clientY}px`;
+        star.style.color = colors[Math.floor(Math.random() * colors.length)];
+        star.style.fontSize = `${Math.random() * 8 + 9}px`;
+        star.style.setProperty('--trail-x', `${Math.random() * 30 - 15}px`);
+        star.style.setProperty('--trail-rotation', `${Math.random() * 100 - 50}deg`);
+        document.body.appendChild(star);
+        star.addEventListener('animationend', () => star.remove(), { once: true });
+    }, { passive: true });
+}
+
 function typeWriter() {
     const texts = ['Desenvolvedora', 'UI/UX Designer', 'Fullstack Dev'];
     let i = 0, j = 0, deleting = false;
@@ -369,6 +401,7 @@ document.querySelectorAll('#menu a').forEach(link => {
 
 createMatrix();
 createStars();
+createCursorTrail();
 typeWriter();
 renderProjects();
 observeElements();
