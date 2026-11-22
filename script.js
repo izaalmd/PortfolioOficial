@@ -338,20 +338,25 @@ function typeWriter() {
 }
 
 function updateDots() {
-    const sections = document.querySelectorAll('section[id]');
+    const sections = [...document.querySelectorAll('section[id]')];
     const dots = document.querySelectorAll('.dot');
-    const scrollY = document.documentElement.scrollTop || document.body.scrollTop;
-    sections.forEach((sec, idx) => {
-        const top = sec.offsetTop - window.innerHeight / 2;
-        const bottom = top + sec.offsetHeight;
-        if (scrollY >= top && scrollY < bottom) {
-            dots.forEach(d => d.classList.remove('active'));
-            if (dots[idx]) dots[idx].classList.add('active');
-        }
+    const viewportCenter = window.innerHeight / 2;
+    const activeSection = sections.find(section => {
+        const bounds = section.getBoundingClientRect();
+        return bounds.top <= viewportCenter && bounds.bottom > viewportCenter;
+    }) || sections.reduce((nearest, section) => {
+        const distance = Math.abs(section.getBoundingClientRect().top - viewportCenter);
+        const nearestDistance = Math.abs(nearest.getBoundingClientRect().top - viewportCenter);
+        return distance < nearestDistance ? section : nearest;
+    }, sections[0]);
+
+    dots.forEach(dot => {
+        dot.classList.toggle('active', dot.getAttribute('href') === `#${activeSection.id}`);
     });
 }
 
-document.body.addEventListener('scroll', updateDots);
+window.addEventListener('scroll', updateDots, { passive: true });
+window.addEventListener('resize', updateDots);
 updateDots();
 
 document.querySelectorAll('#menu a').forEach(link => {

@@ -214,8 +214,12 @@ nav h1 {
 
 .cursor {
     color: #c77dff;
-    animation: blink 0.8s step-end infinite;
-    margin-left: 2px;
+    display: inline-block;
+    font-size: 0.8em;
+    margin-left: 0.2em;
+    vertical-align: 0.15em;
+    transform-origin: center;
+    animation: star-pulse 1.4s ease-in-out infinite;
 }
 
 .hero-btn {
