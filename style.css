@@ -1253,6 +1253,42 @@ footer {
     #menu { gap: 1rem; }
 }
 
+@media (max-width: 768px) {
+    #sobre .sobre-layout {
+        flex-direction: row;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 5rem 1.5rem 3rem;
+    }
+
+    #sobre .sobre-foto-wrap {
+        width: clamp(120px, 27vw, 200px);
+        height: clamp(180px, 38vw, 260px);
+    }
+
+    #sobre .sobre-texto-wrap {
+        min-width: 0;
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 520px) {
+    #sobre .sobre-layout {
+        gap: 1rem;
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+
+    #sobre .sobre-foto-wrap {
+        width: clamp(92px, 28vw, 132px);
+        height: clamp(150px, 47vw, 205px);
+    }
+
+    #sobre .sobre-titulo-novo { font-size: clamp(1.45rem, 6vw, 2rem); }
+    #sobre .sobre-texto p { font-size: 0.78rem; line-height: 1.5; }
+    #sobre .sobre-tag { font-size: 0.68rem; padding: 0.4rem 0.65rem; gap: 0.4rem; }
+}
+
 
 .bubble {
     position: fixed;
