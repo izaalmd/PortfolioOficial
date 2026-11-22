@@ -2096,3 +2096,17 @@ footer::before {
     .sobre-texto p { font-size: 0.84rem; }
     .cert-destaque { font-size: 2rem; }
 }
+
+#sobre .sobre-titulo-novo::after {
+    content: none;
+    display: none;
+}
+
+#contato {
+    border: 0;
+    border-top: 0;
+}
+
+#contato .stars-container {
+    inset: -2px 0;
+}
