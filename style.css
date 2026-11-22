@@ -75,6 +75,9 @@ body {
 /* section lilás stars */
 #sobre .stars-container,
 #certificacoes .stars-container,
+#habilidades .stars-container,
+#ferramentas .stars-container,
+#projetos .stars-container,
 #contato .stars-container {
     position: absolute;
     inset: 0;
@@ -83,12 +86,15 @@ body {
     overflow: hidden;
 }
 
-#sobre, #certificacoes, #contato {
+#sobre, #certificacoes, #habilidades, #ferramentas, #projetos, #contato {
     position: relative;
 }
 
 #sobre > *:not(.stars-container),
 #certificacoes > *:not(.stars-container),
+#habilidades > *:not(.stars-container),
+#ferramentas > *:not(.stars-container),
+#projetos > *:not(.stars-container),
 #contato > *:not(.stars-container) {
     position: relative;
     z-index: 1;
@@ -742,7 +748,7 @@ section h2::after { display: none; }
 
 /* PROJETOS */
 #projetos {
-    background: linear-gradient(160deg, #d8b4fe55 0%, #c084fc33 40%, #a855f722 100%), #e9d5ff;
+    background: #e8d5f5;
     overflow-y: auto;
     min-height: 100vh;
     padding: 5rem 8rem;
@@ -805,7 +811,7 @@ section h2::after { display: none; }
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
     gap: 1.8rem;
 }
 

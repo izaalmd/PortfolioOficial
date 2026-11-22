@@ -240,6 +240,9 @@ function createStars() {
         { id: 'hero-stars', count: 18, dark: true },
         { id: 'sobre-stars', count: 12, dark: false },
         { id: 'cert-stars', count: 10, dark: false },
+        { id: 'habilidades-stars', count: 15, dark: false },
+        { id: 'ferramentas-stars', count: 15, dark: false },
+        { id: 'projetos-stars', count: 18, dark: false },
         { id: 'contato-stars', count: 10, dark: false },
     ];
     const darkColors = ['#c77dff','#ff79c6','#bd93f9','#ffffff','#e0aaff','#f8c8ff','#a0c4ff'];
@@ -256,12 +259,12 @@ function createStars() {
         for (let i = 0; i < count; i++) {
             const star = document.createElement('div');
             star.className = 'star';
-            const size = Math.random() * 22 + 10;
+            const size = Math.random() * 18 + 14;
             const color = colors[Math.floor(Math.random() * colors.length)];
             const path = starPaths[Math.floor(Math.random() * starPaths.length)];
             const dur = Math.random() * 6 + 4;
             const delay = Math.random() * 6;
-            const opacity = dark ? (Math.random() * 0.5 + 0.3) : (Math.random() * 0.3 + 0.15);
+            const opacity = dark ? (Math.random() * 0.5 + 0.3) : (Math.random() * 0.3 + 0.4);
             star.style.cssText = `left:${Math.random()*95}%;top:${Math.random()*90}%;animation-duration:${dur}s;animation-delay:-${delay}s;opacity:${opacity};`;
             star.innerHTML = `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="${color}"><path d="${path}"/></svg>`;
             container.appendChild(star);
